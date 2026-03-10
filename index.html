@@ -804,6 +804,9 @@
       <a class="sidebar-item" href="#healthchecklist" onclick="setActive(this)">
         <span class="sidebar-dot" style="background:#ff6b6b"></span> Health Checklist <span class="method-count">5</span>
       </a>
+      <a class="sidebar-item" href="#userservice" onclick="setActive(this)">
+        <span class="sidebar-dot" style="background:#c084fc"></span> User Service <span class="method-count">25</span>
+      </a>
     </div>
 
     <div class="sidebar-section">
@@ -865,6 +868,15 @@
       <a class="sidebar-item" href="#model-healthchecklist" onclick="setActive(this)">
         <span class="sidebar-dot" style="background:#ff6b6b"></span> Health Checklist
       </a>
+      <a class="sidebar-item" href="#model-doctor" onclick="setActive(this)">
+        <span class="sidebar-dot" style="background:#c084fc"></span> Doctor
+      </a>
+      <a class="sidebar-item" href="#model-patient" onclick="setActive(this)">
+        <span class="sidebar-dot" style="background:#c084fc"></span> Patient
+      </a>
+      <a class="sidebar-item" href="#model-therapist" onclick="setActive(this)">
+        <span class="sidebar-dot" style="background:#c084fc"></span> Therapist
+      </a>
     </div>
   </aside>
 
@@ -874,8 +886,8 @@
       <h1 class="hero-title">Raya Platform <em>API</em></h1>
       <p class="hero-desc">Complete REST API reference for all backend microservices. Each service is independently deployed on Kubernetes and accessible via the shared LoadBalancer.</p>
       <div class="hero-stats">
-        <div class="stat"><span class="stat-num">20</span><span class="stat-label">Services</span></div>
-        <div class="stat"><span class="stat-num">95+</span><span class="stat-label">Endpoints</span></div>
+        <div class="stat"><span class="stat-num">21</span><span class="stat-label">Services</span></div>
+        <div class="stat"><span class="stat-num">120+</span><span class="stat-label">Endpoints</span></div>
         <div class="stat"><span class="stat-num">1</span><span class="stat-label">Base URL</span></div>
       </div>
 
@@ -1177,6 +1189,150 @@ title:     <span class="str">"Updated Report Title"</span></div></div></div></di
       <div class="endpoint"><div class="endpoint-header" onclick="toggleEndpoint(this)"><span class="method POST">POST</span><span class="endpoint-path">/healthchecklist/api/health-checklists</span><span class="endpoint-summary">Create health checklist</span><span class="chevron">▼</span></div><div class="endpoint-body"><div class="body-section"><div class="body-label">Request Body</div><div class="code-block"><button class="copy-btn" onclick="copyCode(this)">copy</button>{ <span class="key">"patientId"</span>: <span class="str">"507f1f77bcf86cd799439011"</span>, <span class="key">"resortId"</span>: <span class="str">"507f1f77bcf86cd799439013"</span>, <span class="key">"items"</span>: [] }</div></div></div></div>
       <div class="endpoint"><div class="endpoint-header" onclick="toggleEndpoint(this)"><span class="method PUT">PUT</span><span class="endpoint-path">/healthchecklist/api/health-checklists/<span class="param">:id</span></span><span class="endpoint-summary">Update health checklist</span><span class="chevron">▼</span></div><div class="endpoint-body"><div class="body-section"><div class="body-label">Request Body</div><div class="code-block"><button class="copy-btn" onclick="copyCode(this)">copy</button>{ <span class="key">"items"</span>: [] }</div></div></div></div>
       <div class="endpoint"><div class="endpoint-header" onclick="toggleEndpoint(this)"><span class="method DELETE">DELETE</span><span class="endpoint-path">/healthchecklist/api/health-checklists/<span class="param">:id</span></span><span class="endpoint-summary">Delete health checklist</span><span class="chevron">▼</span></div><div class="endpoint-body"><div class="body-section"><div class="body-label">Response</div><div class="code-block">{ <span class="key">"success"</span>: <span class="bool">true</span> }</div></div></div></div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════ -->
+    <!-- USER SERVICE -->
+    <!-- ═══════════════════════════════════════════════════ -->
+    <div class="service-section" id="userservice">
+      <div class="service-header">
+        <div class="service-icon" style="background:rgba(192,132,252,0.15);color:#c084fc">👤</div>
+        <span class="service-name">User Service</span>
+        <span class="service-path">/userservice</span>
+        <span class="service-desc">Firebase Auth + Firestore + MongoDB</span>
+      </div>
+
+      <!-- AUTH -->
+      <div class="sub-label" style="padding:6px 20px;font-size:11px;font-weight:700;text-transform:uppercase;color:#888;letter-spacing:1px">Authentication</div>
+
+      <div class="endpoint"><div class="endpoint-header" onclick="toggleEndpoint(this)"><span class="method POST">POST</span><span class="endpoint-path">/userservice/api/signin-google</span><span class="endpoint-summary">Sign in with Google (Firebase ID token)</span><span class="chevron">▼</span></div><div class="endpoint-body"><div class="body-section"><div class="body-label">Request Body</div><div class="code-block"><button class="copy-btn" onclick="copyCode(this)">copy</button>{ <span class="key">"idToken"</span>: <span class="str">"&lt;Firebase ID token&gt;"</span> }</div></div><div class="body-section"><div class="body-label">Response 200</div><div class="code-block">{ <span class="key">"status"</span>: <span class="str">"success"</span>, <span class="key">"uid"</span>: <span class="str">"abc123"</span>, <span class="key">"email"</span>: <span class="str">"user@example.com"</span> }</div></div></div></div>
+
+      <div class="endpoint"><div class="endpoint-header" onclick="toggleEndpoint(this)"><span class="method POST">POST</span><span class="endpoint-path">/userservice/api/facebook-login</span><span class="endpoint-summary">Sign in with Facebook access token</span><span class="chevron">▼</span></div><div class="endpoint-body"><div class="body-section"><div class="body-label">Request Body</div><div class="code-block"><button class="copy-btn" onclick="copyCode(this)">copy</button>{ <span class="key">"accessToken"</span>: <span class="str">"&lt;Facebook access token&gt;"</span> }</div></div><div class="body-section"><div class="body-label">Response 200</div><div class="code-block">{ <span class="key">"status"</span>: <span class="str">"success"</span>, <span class="key">"uid"</span>: <span class="str">"abc123"</span>, <span class="key">"firebaseIdToken"</span>: <span class="str">"&lt;token&gt;"</span> }</div></div></div></div>
+
+      <div class="endpoint"><div class="endpoint-header" onclick="toggleEndpoint(this)"><span class="method POST">POST</span><span class="endpoint-path">/userservice/forgotPassword</span><span class="endpoint-summary">Generate password reset link</span><span class="chevron">▼</span></div><div class="endpoint-body"><div class="body-section"><div class="body-label">Request Body</div><div class="code-block"><button class="copy-btn" onclick="copyCode(this)">copy</button>{ <span class="key">"email"</span>: <span class="str">"user@example.com"</span> }</div></div><div class="body-section"><div class="body-label">Response 200</div><div class="code-block">{ <span class="key">"message"</span>: <span class="str">"Password reset link generated successfully."</span>, <span class="key">"resetLink"</span>: <span class="str">"https://..."</span> }</div></div></div></div>
+
+      <!-- CREATE USERS -->
+      <div class="sub-label" style="padding:6px 20px;font-size:11px;font-weight:700;text-transform:uppercase;color:#888;letter-spacing:1px">Create Users</div>
+
+      <div class="endpoint"><div class="endpoint-header" onclick="toggleEndpoint(this)"><span class="method POST">POST</span><span class="endpoint-path">/userservice/createUser</span><span class="endpoint-summary">Create a generic user with role</span><span class="chevron">▼</span></div><div class="endpoint-body"><div class="body-section"><div class="body-label">Request Body</div><div class="code-block"><button class="copy-btn" onclick="copyCode(this)">copy</button>{
+  <span class="key">"email"</span>: <span class="str">"user@example.com"</span>,
+  <span class="key">"password"</span>: <span class="str">"secret"</span>,
+  <span class="key">"username"</span>: <span class="str">"johndoe"</span>,
+  <span class="key">"role"</span>: <span class="str">"admin"</span>,
+  <span class="key">"resortName"</span>: <span class="str">"Raya Resort"</span>
+}</div></div><div class="body-section"><div class="body-label">Response 201</div><div class="code-block">{ <span class="key">"message"</span>: <span class="str">"User created successfully"</span>, <span class="key">"uid"</span>: <span class="str">"abc123"</span>, <span class="key">"role"</span>: <span class="str">"admin"</span> }</div></div></div></div>
+
+      <div class="endpoint"><div class="endpoint-header" onclick="toggleEndpoint(this)"><span class="method POST">POST</span><span class="endpoint-path">/userservice/createPatient</span><span class="endpoint-summary">Create patient user (role: Patient)</span><span class="chevron">▼</span></div><div class="endpoint-body"><div class="body-section"><div class="body-label">Request Body</div><div class="code-block"><button class="copy-btn" onclick="copyCode(this)">copy</button>{
+  <span class="key">"fullname"</span>: <span class="str">"Jane Doe"</span>,
+  <span class="key">"gender"</span>: <span class="str">"female"</span>,
+  <span class="key">"country"</span>: <span class="str">"Sri Lanka"</span>,
+  <span class="key">"phone"</span>: <span class="str">"+94771234567"</span>,
+  <span class="key">"email"</span>: <span class="str">"jane@example.com"</span>,
+  <span class="key">"password"</span>: <span class="str">"secret"</span>
+}</div></div><div class="body-section"><div class="body-label">Response 201</div><div class="code-block">{ <span class="key">"message"</span>: <span class="str">"Patient created successfully"</span>, <span class="key">"uid"</span>: <span class="str">"abc123"</span>, <span class="key">"role"</span>: <span class="str">"Patient"</span> }</div></div></div></div>
+
+      <div class="endpoint"><div class="endpoint-header" onclick="toggleEndpoint(this)"><span class="method POST">POST</span><span class="endpoint-path">/userservice/createTherapist</span><span class="endpoint-summary">Create therapist user (role: Therapist)</span><span class="chevron">▼</span></div><div class="endpoint-body"><div class="body-section"><div class="body-label">Request Body</div><div class="code-block"><button class="copy-btn" onclick="copyCode(this)">copy</button>{
+  <span class="key">"resortId"</span>: <span class="str">"507f1f77bcf86cd799439011"</span>,
+  <span class="key">"personalInfo"</span>: {
+    <span class="key">"title"</span>: <span class="str">"Mr"</span>,
+    <span class="key">"fullName"</span>: <span class="str">"John Smith"</span>,
+    <span class="key">"gender"</span>: <span class="str">"male"</span>,
+    <span class="key">"dateOfBirth"</span>: <span class="str">"1990-01-01"</span>,
+    <span class="key">"contactNumber"</span>: <span class="str">"+94771234567"</span>,
+    <span class="key">"emailAddress"</span>: <span class="str">"therapist@example.com"</span>
+  },
+  <span class="key">"qualifications"</span>: [],
+  <span class="key">"expertise"</span>: { <span class="key">"specialtyArea"</span>: <span class="str">"Ayurveda"</span>, <span class="key">"yearsOfExperience"</span>: <span class="num">5</span> },
+  <span class="key">"documents"</span>: [],
+  <span class="key">"termsOfEmployment"</span>: {},
+  <span class="key">"userAccess"</span>: { <span class="key">"userName"</span>: <span class="str">"jsmith"</span> },
+  <span class="key">"password"</span>: <span class="str">"secret"</span>
+}</div></div><div class="body-section"><div class="body-label">Response 201</div><div class="code-block">{ <span class="key">"success"</span>: <span class="bool">true</span>, <span class="key">"uid"</span>: <span class="str">"abc123"</span>, <span class="key">"role"</span>: <span class="str">"Therapist"</span>, <span class="key">"resortId"</span>: <span class="str">"..."</span> }</div></div></div></div>
+
+      <div class="endpoint"><div class="endpoint-header" onclick="toggleEndpoint(this)"><span class="method POST">POST</span><span class="endpoint-path">/userservice/createDoctor</span><span class="endpoint-summary">Create doctor user (role: Doctor)</span><span class="chevron">▼</span></div><div class="endpoint-body"><div class="body-section"><div class="body-label">Request Body</div><div class="code-block"><button class="copy-btn" onclick="copyCode(this)">copy</button>{
+  <span class="key">"fullName"</span>: <span class="str">"Dr. Priya Nair"</span>,
+  <span class="key">"gender"</span>: <span class="str">"female"</span>,
+  <span class="key">"dob"</span>: <span class="str">"1985-06-15"</span>,
+  <span class="key">"contactNumber"</span>: <span class="str">"+94771234567"</span>,
+  <span class="key">"email"</span>: <span class="str">"doctor@example.com"</span>,
+  <span class="key">"password"</span>: <span class="str">"secret"</span>,
+  <span class="key">"nationality"</span>: <span class="str">"Sri Lankan"</span>,
+  <span class="key">"specialty"</span>: <span class="str">"Ayurveda"</span>,
+  <span class="key">"yearsOfExperience"</span>: <span class="num">10</span>,
+  <span class="key">"resortId"</span>: <span class="str">"507f1f77bcf86cd799439011"</span>,
+  <span class="key">"qualifications"</span>: [],
+  <span class="key">"documents"</span>: [],
+  <span class="key">"termsOfEmployment"</span>: {}
+}</div></div><div class="body-section"><div class="body-label">Response 201</div><div class="code-block">{ <span class="key">"success"</span>: <span class="bool">true</span>, <span class="key">"uid"</span>: <span class="str">"abc123"</span> }</div></div></div></div>
+
+      <!-- GET / READ -->
+      <div class="sub-label" style="padding:6px 20px;font-size:11px;font-weight:700;text-transform:uppercase;color:#888;letter-spacing:1px">Read Users</div>
+
+      <div class="endpoint"><div class="endpoint-header" onclick="toggleEndpoint(this)"><span class="method GET">GET</span><span class="endpoint-path">/userservice/getPatient/<span class="param">:uid</span></span><span class="endpoint-summary">Get patient by Firebase UID</span><span class="chevron">▼</span></div><div class="endpoint-body"><div class="body-section"><div class="body-label">Path Params</div><table class="params-table"><tr><th>Name</th><th>Type</th><th>Required</th></tr><tr><td><span class="param-name">uid</span></td><td><span class="param-type">string</span></td><td><span class="required-badge">required</span></td></tr></table></div><div class="body-section"><div class="body-label">Response 200</div><div class="code-block">{ <span class="key">"success"</span>: <span class="bool">true</span>, <span class="key">"data"</span>: { <span class="key">"uid"</span>: <span class="str">"..."</span>, <span class="key">"fullname"</span>: <span class="str">"..."</span>, <span class="key">"role"</span>: <span class="str">"Patient"</span>, ... } }</div></div></div></div>
+
+      <div class="endpoint"><div class="endpoint-header" onclick="toggleEndpoint(this)"><span class="method GET">GET</span><span class="endpoint-path">/userservice/getDoctor/<span class="param">:uid</span></span><span class="endpoint-summary">Get doctor by Firebase UID</span><span class="chevron">▼</span></div><div class="endpoint-body"><div class="body-section"><div class="body-label">Path Params</div><table class="params-table"><tr><th>Name</th><th>Type</th><th>Required</th></tr><tr><td><span class="param-name">uid</span></td><td><span class="param-type">string</span></td><td><span class="required-badge">required</span></td></tr></table></div><div class="body-section"><div class="body-label">Response 200</div><div class="code-block">{ <span class="key">"success"</span>: <span class="bool">true</span>, <span class="key">"data"</span>: { <span class="key">"uid"</span>: <span class="str">"..."</span>, <span class="key">"fullName"</span>: <span class="str">"..."</span>, <span class="key">"role"</span>: <span class="str">"Doctor"</span>, ... } }</div></div></div></div>
+
+      <div class="endpoint"><div class="endpoint-header" onclick="toggleEndpoint(this)"><span class="method GET">GET</span><span class="endpoint-path">/userservice/getTherapist/<span class="param">:uid</span></span><span class="endpoint-summary">Get therapist by Firebase UID</span><span class="chevron">▼</span></div><div class="endpoint-body"><div class="body-section"><div class="body-label">Path Params</div><table class="params-table"><tr><th>Name</th><th>Type</th><th>Required</th></tr><tr><td><span class="param-name">uid</span></td><td><span class="param-type">string</span></td><td><span class="required-badge">required</span></td></tr></table></div><div class="body-section"><div class="body-label">Response 200</div><div class="code-block">{ <span class="key">"success"</span>: <span class="bool">true</span>, <span class="key">"data"</span>: { <span class="key">"uid"</span>: <span class="str">"..."</span>, <span class="key">"personalInfo"</span>: {}, <span class="key">"role"</span>: <span class="str">"Therapist"</span>, ... } }</div></div></div></div>
+
+      <div class="endpoint"><div class="endpoint-header" onclick="toggleEndpoint(this)"><span class="method GET">GET</span><span class="endpoint-path">/userservice/getAllPatients</span><span class="endpoint-summary">Get all patients</span><span class="chevron">▼</span></div><div class="endpoint-body"><div class="body-section"><div class="body-label">Response 200</div><div class="code-block">{ <span class="key">"success"</span>: <span class="bool">true</span>, <span class="key">"data"</span>: [...], <span class="key">"count"</span>: <span class="num">12</span> }</div></div></div></div>
+
+      <div class="endpoint"><div class="endpoint-header" onclick="toggleEndpoint(this)"><span class="method GET">GET</span><span class="endpoint-path">/userservice/getAllDoctors</span><span class="endpoint-summary">Get all doctors</span><span class="chevron">▼</span></div><div class="endpoint-body"><div class="body-section"><div class="body-label">Response 200</div><div class="code-block">{ <span class="key">"success"</span>: <span class="bool">true</span>, <span class="key">"data"</span>: [...], <span class="key">"count"</span>: <span class="num">5</span> }</div></div></div></div>
+
+      <div class="endpoint"><div class="endpoint-header" onclick="toggleEndpoint(this)"><span class="method GET">GET</span><span class="endpoint-path">/userservice/getAllTherapists</span><span class="endpoint-summary">Get all therapists</span><span class="chevron">▼</span></div><div class="endpoint-body"><div class="body-section"><div class="body-label">Response 200</div><div class="code-block">{ <span class="key">"success"</span>: <span class="bool">true</span>, <span class="key">"data"</span>: [...], <span class="key">"count"</span>: <span class="num">8</span> }</div></div></div></div>
+
+      <div class="endpoint"><div class="endpoint-header" onclick="toggleEndpoint(this)"><span class="method GET">GET</span><span class="endpoint-path">/userservice/getPatientsWithoutResort</span><span class="endpoint-summary">Get patients with no resortId assigned</span><span class="chevron">▼</span></div><div class="endpoint-body"><div class="body-section"><div class="body-label">Response 200</div><div class="code-block">{ <span class="key">"success"</span>: <span class="bool">true</span>, <span class="key">"data"</span>: [...], <span class="key">"count"</span>: <span class="num">3</span> }</div></div></div></div>
+
+      <div class="endpoint"><div class="endpoint-header" onclick="toggleEndpoint(this)"><span class="method GET">GET</span><span class="endpoint-path">/userservice/getDoctorsByResort/<span class="param">:resortId</span></span><span class="endpoint-summary">Get doctors filtered by resort</span><span class="chevron">▼</span></div><div class="endpoint-body"><div class="body-section"><div class="body-label">Path Params</div><table class="params-table"><tr><th>Name</th><th>Type</th><th>Required</th></tr><tr><td><span class="param-name">resortId</span></td><td><span class="param-type">string</span></td><td><span class="required-badge">required</span></td></tr></table></div><div class="body-section"><div class="body-label">Response 200</div><div class="code-block">{ <span class="key">"success"</span>: <span class="bool">true</span>, <span class="key">"data"</span>: [...], <span class="key">"count"</span>: <span class="num">3</span> }</div></div></div></div>
+
+      <div class="endpoint"><div class="endpoint-header" onclick="toggleEndpoint(this)"><span class="method GET">GET</span><span class="endpoint-path">/userservice/therapists/by-resort/<span class="param">:resortId</span></span><span class="endpoint-summary">Get therapists filtered by resort</span><span class="chevron">▼</span></div><div class="endpoint-body"><div class="body-section"><div class="body-label">Path Params</div><table class="params-table"><tr><th>Name</th><th>Type</th><th>Required</th></tr><tr><td><span class="param-name">resortId</span></td><td><span class="param-type">string</span></td><td><span class="required-badge">required</span></td></tr></table></div><div class="body-section"><div class="body-label">Response 200</div><div class="code-block">{ <span class="key">"success"</span>: <span class="bool">true</span>, <span class="key">"data"</span>: [...], <span class="key">"count"</span>: <span class="num">4</span> }</div></div></div></div>
+
+      <!-- UPDATE -->
+      <div class="sub-label" style="padding:6px 20px;font-size:11px;font-weight:700;text-transform:uppercase;color:#888;letter-spacing:1px">Update Users</div>
+
+      <div class="endpoint"><div class="endpoint-header" onclick="toggleEndpoint(this)"><span class="method PUT">PUT</span><span class="endpoint-path">/userservice/updatePatient/<span class="param">:uid</span></span><span class="endpoint-summary">Update patient by Firebase UID</span><span class="chevron">▼</span></div><div class="endpoint-body"><div class="body-section"><div class="body-label">Request Body (all fields optional)</div><div class="code-block"><button class="copy-btn" onclick="copyCode(this)">copy</button>{
+  <span class="key">"fullname"</span>: <span class="str">"Jane Updated"</span>,
+  <span class="key">"gender"</span>: <span class="str">"female"</span>,
+  <span class="key">"country"</span>: <span class="str">"Sri Lanka"</span>,
+  <span class="key">"phone"</span>: <span class="str">"+94771234567"</span>,
+  <span class="key">"email"</span>: <span class="str">"newemail@example.com"</span>
+}</div></div><div class="body-section"><div class="body-label">Response 200</div><div class="code-block">{ <span class="key">"success"</span>: <span class="bool">true</span>, <span class="key">"message"</span>: <span class="str">"Patient updated successfully"</span>, <span class="key">"data"</span>: { ... } }</div></div></div></div>
+
+      <div class="endpoint"><div class="endpoint-header" onclick="toggleEndpoint(this)"><span class="method PUT">PUT</span><span class="endpoint-path">/userservice/updateDoctor/<span class="param">:uid</span></span><span class="endpoint-summary">Update doctor by Firebase UID</span><span class="chevron">▼</span></div><div class="endpoint-body"><div class="body-section"><div class="body-label">Request Body (all fields optional)</div><div class="code-block"><button class="copy-btn" onclick="copyCode(this)">copy</button>{
+  <span class="key">"fullName"</span>: <span class="str">"Dr. Updated"</span>,
+  <span class="key">"specialty"</span>: <span class="str">"Yoga"</span>,
+  <span class="key">"resortId"</span>: <span class="str">"507f1f77bcf86cd799439011"</span>,
+  <span class="key">"email"</span>: <span class="str">"newemail@example.com"</span>,
+  <span class="key">"documents"</span>: [],
+  <span class="key">"termsOfEmployment"</span>: {}
+}</div></div><div class="body-section"><div class="body-label">Response 200</div><div class="code-block">{ <span class="key">"success"</span>: <span class="bool">true</span>, <span class="key">"message"</span>: <span class="str">"Doctor updated successfully"</span>, <span class="key">"data"</span>: { ... } }</div></div></div></div>
+
+      <div class="endpoint"><div class="endpoint-header" onclick="toggleEndpoint(this)"><span class="method PUT">PUT</span><span class="endpoint-path">/userservice/updateTherapist/<span class="param">:uid</span></span><span class="endpoint-summary">Update therapist by Firebase UID</span><span class="chevron">▼</span></div><div class="endpoint-body"><div class="body-section"><div class="body-label">Request Body (all fields optional, deep-merged)</div><div class="code-block"><button class="copy-btn" onclick="copyCode(this)">copy</button>{
+  <span class="key">"resortId"</span>: <span class="str">"507f1f77bcf86cd799439011"</span>,
+  <span class="key">"personalInfo"</span>: { <span class="key">"fullName"</span>: <span class="str">"Updated Name"</span>, <span class="key">"emailAddress"</span>: <span class="str">"new@example.com"</span> },
+  <span class="key">"expertise"</span>: { <span class="key">"specialtyArea"</span>: <span class="str">"Yoga"</span> },
+  <span class="key">"qualifications"</span>: [],
+  <span class="key">"documents"</span>: [],
+  <span class="key">"termsOfEmployment"</span>: {},
+  <span class="key">"userAccess"</span>: { <span class="key">"accountActive"</span>: <span class="bool">true</span> }
+}</div></div><div class="body-section"><div class="body-label">Response 200</div><div class="code-block">{ <span class="key">"success"</span>: <span class="bool">true</span>, <span class="key">"message"</span>: <span class="str">"Therapist updated successfully"</span>, <span class="key">"data"</span>: { ... } }</div></div></div></div>
+
+      <!-- MONGO ROUTES (/api/doctors & /api/therapists) -->
+      <div class="sub-label" style="padding:6px 20px;font-size:11px;font-weight:700;text-transform:uppercase;color:#888;letter-spacing:1px">MongoDB Routes — Doctors</div>
+
+      <div class="endpoint"><div class="endpoint-header" onclick="toggleEndpoint(this)"><span class="method GET">GET</span><span class="endpoint-path">/userservice/api/doctors</span><span class="endpoint-summary">Get all doctors from MongoDB (filter by ?resortId=)</span><span class="chevron">▼</span></div><div class="endpoint-body"><div class="body-section"><div class="body-label">Query Params</div><table class="params-table"><tr><th>Name</th><th>Type</th><th>Required</th></tr><tr><td><span class="param-name">resortId</span></td><td><span class="param-type">string</span></td><td><span class="optional-badge">optional</span></td></tr></table></div><div class="body-section"><div class="body-label">Response 200</div><div class="code-block">{ <span class="key">"success"</span>: <span class="bool">true</span>, <span class="key">"data"</span>: [...] }</div></div></div></div>
+
+      <div class="endpoint"><div class="endpoint-header" onclick="toggleEndpoint(this)"><span class="method GET">GET</span><span class="endpoint-path">/userservice/api/doctors/<span class="param">:id</span></span><span class="endpoint-summary">Get single doctor by Mongo _id</span><span class="chevron">▼</span></div><div class="endpoint-body"><div class="body-section"><div class="body-label">Path Params</div><table class="params-table"><tr><th>Name</th><th>Type</th><th>Required</th></tr><tr><td><span class="param-name">id</span></td><td><span class="param-type">ObjectId</span></td><td><span class="required-badge">required</span></td></tr></table></div></div></div>
+
+      <div class="endpoint"><div class="endpoint-header" onclick="toggleEndpoint(this)"><span class="method DELETE">DELETE</span><span class="endpoint-path">/userservice/api/doctors/<span class="param">:id</span></span><span class="endpoint-summary">Delete doctor by Mongo _id</span><span class="chevron">▼</span></div><div class="endpoint-body"><div class="body-section"><div class="body-label">Response 200</div><div class="code-block">{ <span class="key">"success"</span>: <span class="bool">true</span>, <span class="key">"message"</span>: <span class="str">"Deleted successfully"</span> }</div></div></div></div>
+
+      <div class="sub-label" style="padding:6px 20px;font-size:11px;font-weight:700;text-transform:uppercase;color:#888;letter-spacing:1px">MongoDB Routes — Therapists</div>
+
+      <div class="endpoint"><div class="endpoint-header" onclick="toggleEndpoint(this)"><span class="method GET">GET</span><span class="endpoint-path">/userservice/api/therapists</span><span class="endpoint-summary">Get all therapists from MongoDB (filter by ?resortId=)</span><span class="chevron">▼</span></div><div class="endpoint-body"><div class="body-section"><div class="body-label">Query Params</div><table class="params-table"><tr><th>Name</th><th>Type</th><th>Required</th></tr><tr><td><span class="param-name">resortId</span></td><td><span class="param-type">string</span></td><td><span class="optional-badge">optional</span></td></tr></table></div><div class="body-section"><div class="body-label">Response 200</div><div class="code-block">{ <span class="key">"success"</span>: <span class="bool">true</span>, <span class="key">"data"</span>: [...] }</div></div></div></div>
+
+      <div class="endpoint"><div class="endpoint-header" onclick="toggleEndpoint(this)"><span class="method GET">GET</span><span class="endpoint-path">/userservice/api/therapists/<span class="param">:id</span></span><span class="endpoint-summary">Get single therapist by Mongo _id</span><span class="chevron">▼</span></div><div class="endpoint-body"><div class="body-section"><div class="body-label">Path Params</div><table class="params-table"><tr><th>Name</th><th>Type</th><th>Required</th></tr><tr><td><span class="param-name">id</span></td><td><span class="param-type">ObjectId</span></td><td><span class="required-badge">required</span></td></tr></table></div></div></div>
+
+      <div class="endpoint"><div class="endpoint-header" onclick="toggleEndpoint(this)"><span class="method DELETE">DELETE</span><span class="endpoint-path">/userservice/api/therapists/<span class="param">:id</span></span><span class="endpoint-summary">Delete therapist by Mongo _id</span><span class="chevron">▼</span></div><div class="endpoint-body"><div class="body-section"><div class="body-label">Response 200</div><div class="code-block">{ <span class="key">"success"</span>: <span class="bool">true</span>, <span class="key">"message"</span>: <span class="str">"Deleted successfully"</span> }</div></div></div></div>
+
     </div>
 
     <!-- ═══════════════════════════════════════════════════ -->
@@ -2553,6 +2709,202 @@ title:     <span class="str">"Updated Report Title"</span></div></div></div></di
           <tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr>
           <tr><td><span class="field-name">status</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc"><code style="font-family:'DM Mono',monospace;color:var(--accent3)">"never" | "occasional" | "regular"</code></span></td></tr>
           <tr><td><span class="field-name">weeklyFrequency</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">e.g. "1-2 times"</span></td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- MODEL: DOCTOR -->
+    <div class="model-section" id="model-doctor">
+      <div class="model-section-header">
+        <div class="model-icon" style="background:rgba(192,132,252,0.15);color:#c084fc">👨‍⚕️</div>
+        <span class="model-name">Doctor</span>
+        <span class="model-filename">modelDoctor.js</span>
+      </div>
+
+      <!-- Doctor root -->
+      <div class="model-card" style="margin-bottom:0.75rem">
+        <div class="model-card-header">
+          <span class="model-card-title">Doctor</span>
+          <span class="model-sub-label">doctors collection · auto-ID: DD-001</span>
+        </div>
+        <table class="field-table">
+          <tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr>
+          <tr><td><span class="field-name">fullName</span></td><td><span class="field-type type-string">String</span></td><td><span class="required-badge">required</span></td><td><span class="field-desc">Doctor's full name</span></td></tr>
+          <tr><td><span class="field-name">gender</span></td><td><span class="field-type type-string">String</span></td><td><span class="required-badge">required</span></td><td><span class="field-desc">enum: <code style="font-family:'DM Mono',monospace;color:var(--accent3)">&quot;Male&quot; | &quot;Female&quot; | &quot;Other&quot;</code></span></td></tr>
+          <tr><td><span class="field-name">dob</span></td><td><span class="field-type type-date">Date</span></td><td><span class="required-badge">required</span></td><td><span class="field-desc">Date of birth</span></td></tr>
+          <tr><td><span class="field-name">profilePhoto</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">URL to profile photo</span></td></tr>
+          <tr><td><span class="field-name">contactNumber</span></td><td><span class="field-type type-string">String</span></td><td><span class="required-badge">required</span></td><td></td></tr>
+          <tr><td><span class="field-name">email</span></td><td><span class="field-type type-string">String</span></td><td><span class="required-badge">required</span></td><td><span class="field-desc">Unique per resort · lowercase</span></td></tr>
+          <tr><td><span class="field-name">nationality</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td></td></tr>
+          <tr><td><span class="field-name">spokenLanguages</span></td><td><span class="field-type type-array">Array&lt;String&gt;</span></td><td><span class="optional-badge">optional</span></td><td></td></tr>
+          <tr><td><span class="field-name">maritalStatus</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td></td></tr>
+          <tr><td><span class="field-name">nicNumber</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">National ID card number</span></td></tr>
+          <tr><td><span class="field-name">doorNo</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td></td></tr>
+          <tr><td><span class="field-name">addressLine1</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td></td></tr>
+          <tr><td><span class="field-name">addressLine2</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td></td></tr>
+          <tr><td><span class="field-name">city</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td></td></tr>
+          <tr><td><span class="field-name">postalCode</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td></td></tr>
+          <tr><td><span class="field-name">country</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td></td></tr>
+          <tr><td><span class="field-name">emergencyContact</span></td><td><span class="field-type type-mixed">Mixed</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc"><code style="font-family:'DM Mono',monospace;color:var(--accent3)">{ fullName, email, relation, contactNumber }</code></span></td></tr>
+          <tr><td><span class="field-name">qualifications</span></td><td><span class="field-type type-array">Array&lt;Qualification&gt;</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">See Qualification sub-doc</span></td></tr>
+          <tr><td><span class="field-name">specialty</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td></td></tr>
+          <tr><td><span class="field-name">yearsOfExperience</span></td><td><span class="field-type type-number">Number</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">min: 0 · max: 80</span></td></tr>
+          <tr><td><span class="field-name">resortId</span></td><td><span class="field-type type-string">String</span></td><td><span class="required-badge">required</span></td><td><span class="field-desc">Multi-branch support · indexed</span></td></tr>
+          <tr><td><span class="field-name">documents</span></td><td><span class="field-type type-array">Array&lt;Document&gt;</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">See Document sub-doc</span></td></tr>
+          <tr><td><span class="field-name">termsOfEmployment</span></td><td><span class="field-type type-mixed">Mixed</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">See TermsOfEmployment sub-doc</span></td></tr>
+          <tr><td><span class="field-name">userAccess.assignedEmail</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td></td></tr>
+          <tr><td><span class="field-name">userAccess.doctorId</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">auto</span></td><td><span class="field-desc">Auto-generated: <code style="font-family:'DM Mono',monospace;color:var(--accent3)">DD-001</code> per resort</span></td></tr>
+          <tr><td><span class="field-name">userAccess.loginEmail</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td></td></tr>
+          <tr><td><span class="field-name">userAccess.role</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">default: &quot;Doctor&quot;</span></td></tr>
+          <tr><td><span class="field-name">userAccess.isActive</span></td><td><span class="field-type type-boolean">Boolean</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">default: true</span></td></tr>
+          <tr><td><span class="field-name">createdAt</span></td><td><span class="field-type type-date">Date</span></td><td><span class="optional-badge">auto</span></td><td><span class="field-desc">Mongoose timestamps</span></td></tr>
+          <tr><td><span class="field-name">updatedAt</span></td><td><span class="field-type type-date">Date</span></td><td><span class="optional-badge">auto</span></td><td><span class="field-desc">Mongoose timestamps</span></td></tr>
+        </table>
+      </div>
+
+      <!-- Qualification sub-doc -->
+      <div class="model-card" style="margin-bottom:0.75rem">
+        <div class="model-card-header">
+          <span class="model-card-title">Qualification <span style="font-size:0.72rem;color:var(--muted);font-family:'DM Sans',sans-serif;font-weight:300">(sub-document, _id: false)</span></span>
+          <span class="model-sub-label">sub-doc inside Doctor.qualifications[]</span>
+        </div>
+        <table class="field-table">
+          <tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr>
+          <tr><td><span class="field-name">qualificationType</span></td><td><span class="field-type type-string">String</span></td><td><span class="required-badge">required</span></td><td><span class="field-desc">enum: Certificate Course · Diploma Course · Advanced Diploma · Bachelor's Degree · Master's Degree · Doctorate / PhD</span></td></tr>
+          <tr><td><span class="field-name">qualification</span></td><td><span class="field-type type-string">String</span></td><td><span class="required-badge">required</span></td><td><span class="field-desc">e.g. &quot;BAMS, MD (Ayurveda)&quot;</span></td></tr>
+          <tr><td><span class="field-name">institution</span></td><td><span class="field-type type-string">String</span></td><td><span class="required-badge">required</span></td><td><span class="field-desc">University / institution name</span></td></tr>
+          <tr><td><span class="field-name">yearCompleted</span></td><td><span class="field-type type-number">Number</span></td><td><span class="required-badge">required</span></td><td><span class="field-desc">min: 1900 · max: current year + 1</span></td></tr>
+          <tr><td><span class="field-name">regNo</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">Registration number</span></td></tr>
+        </table>
+      </div>
+
+      <!-- Document sub-doc -->
+      <div class="model-card" style="margin-bottom:0.75rem">
+        <div class="model-card-header">
+          <span class="model-card-title">Document <span style="font-size:0.72rem;color:var(--muted);font-family:'DM Sans',sans-serif;font-weight:300">(sub-document)</span></span>
+          <span class="model-sub-label">sub-doc inside Doctor.documents[]</span>
+        </div>
+        <table class="field-table">
+          <tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr>
+          <tr><td><span class="field-name">mainCategory</span></td><td><span class="field-type type-string">String</span></td><td><span class="required-badge">required</span></td><td><span class="field-desc">enum: Right To Work · Identification Document · Employment Document · Other</span></td></tr>
+          <tr><td><span class="field-name">documentName</span></td><td><span class="field-type type-string">String</span></td><td><span class="required-badge">required</span></td><td></td></tr>
+          <tr><td><span class="field-name">description</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td></td></tr>
+          <tr><td><span class="field-name">issueDate</span></td><td><span class="field-type type-date">Date</span></td><td><span class="optional-badge">optional</span></td><td></td></tr>
+          <tr><td><span class="field-name">expiryDate</span></td><td><span class="field-type type-date">Date</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">Auto-sets status to &quot;Expired&quot; if past</span></td></tr>
+          <tr><td><span class="field-name">status</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">auto</span></td><td><span class="field-desc">enum: &quot;Valid&quot; | &quot;Expired&quot; · auto-computed on validate</span></td></tr>
+          <tr><td><span class="field-name">files</span></td><td><span class="field-type type-array">Array&lt;FileEntry&gt;</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc"><code style="font-family:'DM Mono',monospace;color:var(--accent3)">{ fileUrl, fileName, uploadedAt }</code></span></td></tr>
+          <tr><td><span class="field-name">uploadedBy</span></td><td><span class="field-type type-string">String</span></td><td><span class="required-badge">required</span></td><td></td></tr>
+          <tr><td><span class="field-name">createdAt</span></td><td><span class="field-type type-date">Date</span></td><td><span class="optional-badge">auto</span></td><td><span class="field-desc">Mongoose timestamps</span></td></tr>
+          <tr><td><span class="field-name">updatedAt</span></td><td><span class="field-type type-date">Date</span></td><td><span class="optional-badge">auto</span></td><td><span class="field-desc">Mongoose timestamps</span></td></tr>
+        </table>
+      </div>
+
+      <!-- TermsOfEmployment sub-doc -->
+      <div class="model-card" style="margin-bottom:0.75rem">
+        <div class="model-card-header">
+          <span class="model-card-title">TermsOfEmployment <span style="font-size:0.72rem;color:var(--muted);font-family:'DM Sans',sans-serif;font-weight:300">(sub-document, _id: false)</span></span>
+          <span class="model-sub-label">sub-doc inside Doctor.termsOfEmployment</span>
+        </div>
+        <table class="field-table">
+          <tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr>
+          <tr><td><span class="field-name">continuousServiceStartDate</span></td><td><span class="field-type type-date">Date</span></td><td><span class="required-badge">required</span></td><td></td></tr>
+          <tr><td><span class="field-name">startDateInCurrentRole</span></td><td><span class="field-type type-date">Date</span></td><td><span class="required-badge">required</span></td><td></td></tr>
+          <tr><td><span class="field-name">endDate</span></td><td><span class="field-type type-date">Date</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">Must be &ge; startDateInCurrentRole</span></td></tr>
+          <tr><td><span class="field-name">contractType</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">enum: Permanent / Full-time · Contract / Fixed-Term · Probationary · Part-Time · Casual · Temporary · Internship / Trainee · Freelance · Daily Wage · Outsourced / Third-Party · Seasonal Contract</span></td></tr>
+          <tr><td><span class="field-name">probationPeriod</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">enum: 02 Month · 03 Month · 04 Month · 05 Month · 06 Month</span></td></tr>
+          <tr><td><span class="field-name">isSupervisor</span></td><td><span class="field-type type-boolean">Boolean</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">default: false</span></td></tr>
+          <tr><td><span class="field-name">supervisor</span></td><td><span class="field-type type-objectid">ObjectId</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">ref: Doctor</span></td></tr>
+          <tr><td><span class="field-name">taxCode</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td></td></tr>
+          <tr><td><span class="field-name">department</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">enum: Front Office / Reception · Housekeeping · HR &amp; Administration · Finance &amp; Accounts · Sales &amp; Marketing · IT · Security · Maintenance</span></td></tr>
+          <tr><td><span class="field-name">paySchedule</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">enum: Hourly · Daily · Weekly · Bi-weekly · Monthly · Quarterly · Annual</span></td></tr>
+          <tr><td><span class="field-name">weekendOff</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">enum: &quot;Yes&quot; | &quot;No&quot;</span></td></tr>
+          <tr><td><span class="field-name">hoursPerWeek</span></td><td><span class="field-type type-number">Number</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">min: 0</span></td></tr>
+          <tr><td><span class="field-name">totalWorkingDays</span></td><td><span class="field-type type-number">Number</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">min: 0</span></td></tr>
+          <tr><td><span class="field-name">payRate</span></td><td><span class="field-type type-mixed">Mixed</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc"><code style="font-family:'DM Mono',monospace;color:var(--accent3)">{ currency: &quot;LKR&quot;, amount: Number }</code></span></td></tr>
+          <tr><td><span class="field-name">overtimeRate</span></td><td><span class="field-type type-mixed">Mixed</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc"><code style="font-family:'DM Mono',monospace;color:var(--accent3)">{ currency: &quot;LKR&quot;, amount: Number }</code></span></td></tr>
+          <tr><td><span class="field-name">payMethod</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">enum: Cash · Credit Card · Debit Card · Bank Transfer · Cheque · Wire Transfer</span></td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- MODEL: PATIENT -->
+    <div class="model-section" id="model-patient">
+      <div class="model-section-header">
+        <div class="model-icon" style="background:rgba(192,132,252,0.15);color:#c084fc">👤</div>
+        <span class="model-name">Patient</span>
+        <span class="model-filename">modelPatient.js</span>
+      </div>
+
+      <div class="model-card" style="margin-bottom:0.75rem">
+        <div class="model-card-header">
+          <span class="model-card-title">Patient</span>
+          <span class="model-sub-label">patients collection · Firebase Auth + Firestore</span>
+        </div>
+        <table class="field-table">
+          <tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr>
+          <tr><td><span class="field-name">fullname</span></td><td><span class="field-type type-string">String</span></td><td><span class="required-badge">required</span></td><td><span class="field-desc">Patient's full name</span></td></tr>
+          <tr><td><span class="field-name">email</span></td><td><span class="field-type type-string">String</span></td><td><span class="required-badge">required</span></td><td><span class="field-desc">Unique · lowercase · linked to Firebase Auth</span></td></tr>
+          <tr><td><span class="field-name">phone</span></td><td><span class="field-type type-string">String</span></td><td><span class="required-badge">required</span></td><td></td></tr>
+          <tr><td><span class="field-name">gender</span></td><td><span class="field-type type-string">String</span></td><td><span class="required-badge">required</span></td><td><span class="field-desc">enum: &quot;Male&quot; | &quot;Female&quot; | &quot;Other&quot; | &quot;Prefer not to say&quot;</span></td></tr>
+          <tr><td><span class="field-name">country</span></td><td><span class="field-type type-string">String</span></td><td><span class="required-badge">required</span></td><td><span class="field-desc">Country of residence</span></td></tr>
+          <tr><td><span class="field-name">firebaseUid</span></td><td><span class="field-type type-string">String</span></td><td><span class="required-badge">required</span></td><td><span class="field-desc">Unique · Firebase Authentication UID</span></td></tr>
+          <tr><td><span class="field-name">role</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">enum: &quot;Patient&quot; · default: &quot;Patient&quot;</span></td></tr>
+          <tr><td><span class="field-name">status</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">enum: &quot;Active&quot; | &quot;Inactive&quot; | &quot;Suspended&quot; · default: &quot;Active&quot;</span></td></tr>
+          <tr><td><span class="field-name">profilePhoto</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">URL to profile photo</span></td></tr>
+          <tr><td><span class="field-name">dateOfBirth</span></td><td><span class="field-type type-date">Date</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">Used to compute virtual <code style="font-family:'DM Mono',monospace;color:var(--accent3)">age</code></span></td></tr>
+          <tr><td><span class="field-name">nationality</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td></td></tr>
+          <tr><td><span class="field-name">emergencyContact</span></td><td><span class="field-type type-mixed">Mixed</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc"><code style="font-family:'DM Mono',monospace;color:var(--accent3)">{ fullName, relation, phoneNumber, email }</code></span></td></tr>
+          <tr><td><span class="field-name">medicalHistory</span></td><td><span class="field-type type-mixed">Mixed</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc"><code style="font-family:'DM Mono',monospace;color:var(--accent3)">{ allergies: [String], chronicConditions: [String], medications: [String], notes: String }</code></span></td></tr>
+          <tr><td><span class="field-name">lastLogin</span></td><td><span class="field-type type-date">Date</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">Timestamp of last login</span></td></tr>
+          <tr><td><span class="field-name">createdAt</span></td><td><span class="field-type type-date">Date</span></td><td><span class="optional-badge">auto</span></td><td><span class="field-desc">Mongoose timestamps</span></td></tr>
+          <tr><td><span class="field-name">updatedAt</span></td><td><span class="field-type type-date">Date</span></td><td><span class="optional-badge">auto</span></td><td><span class="field-desc">Mongoose timestamps</span></td></tr>
+          <tr><td><span class="field-name">age</span></td><td><span class="field-type type-number">Number</span></td><td><span class="optional-badge">virtual</span></td><td><span class="field-desc">Computed from dateOfBirth · included in JSON</span></td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- MODEL: THERAPIST -->
+    <div class="model-section" id="model-therapist">
+      <div class="model-section-header">
+        <div class="model-icon" style="background:rgba(192,132,252,0.15);color:#c084fc">🧘</div>
+        <span class="model-name">Therapist</span>
+        <span class="model-filename">modelTherapist.js</span>
+      </div>
+
+      <!-- Therapist root -->
+      <div class="model-card" style="margin-bottom:0.75rem">
+        <div class="model-card-header">
+          <span class="model-card-title">Therapist</span>
+          <span class="model-sub-label">therapists collection · auto-ID: TH-001 · Firebase Auth + Firestore</span>
+        </div>
+        <table class="field-table">
+          <tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr>
+          <tr><td><span class="field-name">resortId</span></td><td><span class="field-type type-string">String</span></td><td><span class="required-badge">required</span></td><td><span class="field-desc">Resort / branch identifier</span></td></tr>
+          <tr><td><span class="field-name">personalInfo.title</span></td><td><span class="field-type type-string">String</span></td><td><span class="required-badge">required</span></td><td><span class="field-desc">e.g. &quot;Mr&quot; / &quot;Ms&quot;</span></td></tr>
+          <tr><td><span class="field-name">personalInfo.fullName</span></td><td><span class="field-type type-string">String</span></td><td><span class="required-badge">required</span></td><td></td></tr>
+          <tr><td><span class="field-name">personalInfo.gender</span></td><td><span class="field-type type-string">String</span></td><td><span class="required-badge">required</span></td><td></td></tr>
+          <tr><td><span class="field-name">personalInfo.dateOfBirth</span></td><td><span class="field-type type-date">Date</span></td><td><span class="required-badge">required</span></td><td></td></tr>
+          <tr><td><span class="field-name">personalInfo.contactNumber</span></td><td><span class="field-type type-string">String</span></td><td><span class="required-badge">required</span></td><td></td></tr>
+          <tr><td><span class="field-name">personalInfo.emailAddress</span></td><td><span class="field-type type-string">String</span></td><td><span class="required-badge">required</span></td><td></td></tr>
+          <tr><td><span class="field-name">personalInfo.profilePhoto</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td></td></tr>
+          <tr><td><span class="field-name">personalInfo.nationality</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td></td></tr>
+          <tr><td><span class="field-name">personalInfo.spokenLanguages</span></td><td><span class="field-type type-array">Array&lt;String&gt;</span></td><td><span class="optional-badge">optional</span></td><td></td></tr>
+          <tr><td><span class="field-name">personalInfo.maritalStatus</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td></td></tr>
+          <tr><td><span class="field-name">personalInfo.nationalIdCardNumber</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td></td></tr>
+          <tr><td><span class="field-name">personalInfo.currentAddress</span></td><td><span class="field-type type-mixed">Mixed</span></td><td><span class="optional-badge">optional</span></td><td></td></tr>
+          <tr><td><span class="field-name">personalInfo.emergencyContact</span></td><td><span class="field-type type-mixed">Mixed</span></td><td><span class="optional-badge">optional</span></td><td></td></tr>
+          <tr><td><span class="field-name">qualifications</span></td><td><span class="field-type type-array">Array&lt;Qualification&gt;</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc"><code style="font-family:'DM Mono',monospace;color:var(--accent3)">{ qualificationType, certification, universityName, yearCompleted }</code></span></td></tr>
+          <tr><td><span class="field-name">expertise</span></td><td><span class="field-type type-mixed">Mixed</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc"><code style="font-family:'DM Mono',monospace;color:var(--accent3)">{ specialtyArea: String, yearsOfExperience: Number }</code></span></td></tr>
+          <tr><td><span class="field-name">documents</span></td><td><span class="field-type type-array">Array&lt;Document&gt;</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">Same Document schema as Doctor</span></td></tr>
+          <tr><td><span class="field-name">termsOfEmployment</span></td><td><span class="field-type type-mixed">Mixed</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">Same TermsOfEmployment schema as Doctor</span></td></tr>
+          <tr><td><span class="field-name">userAccess.userName</span></td><td><span class="field-type type-string">String</span></td><td><span class="required-badge">required</span></td><td></td></tr>
+          <tr><td><span class="field-name">userAccess.emailAddress</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td></td></tr>
+          <tr><td><span class="field-name">userAccess.role</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">default: &quot;Therapist&quot;</span></td></tr>
+          <tr><td><span class="field-name">userAccess.accountActive</span></td><td><span class="field-type type-boolean">Boolean</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">default: true</span></td></tr>
+          <tr><td><span class="field-name">userAccess.firebaseUid</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">auto</span></td><td><span class="field-desc">Set to Firebase Auth UID on create</span></td></tr>
+          <tr><td><span class="field-name">role</span></td><td><span class="field-type type-string">String</span></td><td><span class="optional-badge">optional</span></td><td><span class="field-desc">default: &quot;Therapist&quot;</span></td></tr>
+          <tr><td><span class="field-name">createdAt</span></td><td><span class="field-type type-date">Date</span></td><td><span class="optional-badge">auto</span></td><td><span class="field-desc">Mongoose timestamps</span></td></tr>
+          <tr><td><span class="field-name">updatedAt</span></td><td><span class="field-type type-date">Date</span></td><td><span class="optional-badge">auto</span></td><td><span class="field-desc">Mongoose timestamps</span></td></tr>
         </table>
       </div>
     </div>
